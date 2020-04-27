@@ -1,6 +1,6 @@
 # Win7Blue
 
-Pentesting tool for SMB (Samba) protocol in Microsoft Windows 7 (EternalBlue MS17-010) (NO Module Metasploit-Framework)
+Pentesting Tool Scan/Exploit (EternalBlue MS17-010) Reverse Shell NETCAT.
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
