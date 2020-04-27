@@ -1,6 +1,6 @@
 # Win7Blue
 
-Pentesting Tool (Windows 7 x86+x64) Scan/Exploit (EternalBlue MS17-010) Reverse Shell NETCAT.
+Scan/Exploit EternalBlue MS17-010 Windows 7 x86+x64 (Reverse Shell NETCAT)
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
