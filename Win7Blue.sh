@@ -55,7 +55,6 @@ function checkroot(){
 }
 
 function dep1(){
-	    echo ""
 	    echo -e "$a check dependencies.. $nc"
 	    sleep 4
 	    which xterm > /dev/null 2>&1
