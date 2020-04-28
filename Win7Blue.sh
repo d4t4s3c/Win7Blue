@@ -54,6 +54,50 @@ function checkroot(){
     fi	
 }
 
+function dep1(){
+	    echo ""
+	    echo -e "$a check dependencies.. $nc"
+	    sleep 4
+	    which xterm > /dev/null 2>&1
+    if [ "$(echo $?)" == "0" ]; then
+	    echo ""
+	    echo -e " $b[$v$si$b] xterm installed $nc"
+	    sleep 4
+    else
+            echo ""
+	    echo -e " $b[$r$no$b] xterm no installed $nc"
+	    sleep 4
+	    echo ""
+	    echo -e "$b installing xterm $nc"
+	    sleep 4
+	    echo ""
+	    apt-get install xterm -y > /dev/null 2>&1
+	    echo -e " $b[$v$si$b] xterm installed $nc"
+	    sleep 4
+    fi
+}
+
+function dep2(){
+	    which rlwrap > /dev/null 2>&1
+    if [ "$(echo $?)" == "0" ]; then
+	    echo ""
+	    echo -e " $b[$v$si$b] rlwrap installed $nc"
+	    sleep 4
+	    echo ""
+    else
+            echo ""
+	    echo -e " $b[$r$no$b] rlwrap no installed $nc"
+	    sleep 4
+	    echo ""
+	    echo -e "$b installing rlwrap $nc"
+	    sleep 4
+	    echo ""
+	    apt-get install rlwrap -y > /dev/null 2>&1
+	    echo -e " $b[$v$si$b] rlwrap installed $nc"
+	    echo ""
+    fi
+}
+
 function banner(){
            echo ""
            echo -e "$b┌═══════════════════════════════════┐"
@@ -193,17 +237,8 @@ read -p " $(echo -e $az$shell $nc)" opc
 clear
 tput civis
 checkroot
-sleep 2
-echo -e "$a Install Dependencies $nc"
-echo ""
-apt-get install xterm -y > /dev/null 2>&1
-echo -e " $b[$v$si$b] Install xterm $nc"
-echo ""
-sleep 2
-apt-get install rlwrap -y > /dev/null 2>&1
-echo -e " $b[$v$si$b] Install rlwrap $nc"
-echo ""
-sleep 2
+dep1
+dep2
 clear
 banner
 main
