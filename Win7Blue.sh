@@ -13,7 +13,7 @@ az="\033[1;34m"
 nc="\e[0m"
 
 #var
-shell=">"
+shell="$"
 n0=0
 n1=1
 n2=2
@@ -93,6 +93,21 @@ function dep2(){
 	    echo ""
 	    apt-get install rlwrap -y > /dev/null 2>&1
 	    echo -e " $b[$v$si$b] rlwrap installed $nc"
+	    echo ""
+    fi
+}
+
+function dep3(){
+	    which msfvenom > /dev/null 2>&1
+    if [ "$(echo $?)" == "0" ]; then
+	    echo ""
+	    echo -e " $b[$v$si$b] msfvenom installed $nc"
+	    sleep 4
+	    echo ""
+    else
+            echo ""
+	    echo -e " $b[$r$no$b] rlwrap no installed $nc"
+	    sleep 4
 	    echo ""
     fi
 }
@@ -238,6 +253,7 @@ tput civis
 checkroot
 dep1
 dep2
+dep3
 clear
 banner
 main
