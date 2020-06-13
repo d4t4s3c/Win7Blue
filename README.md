@@ -1,6 +1,6 @@
 # Win7Blue
 
-Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT [NO METASPLOIT-FRAMEWORK]
+Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO METASPLOIT]**
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
