@@ -100,7 +100,6 @@ function dep2(){
 function dep3(){
 	    which msfvenom > /dev/null 2>&1
     if [ "$(echo $?)" == "0" ]; then
-	    echo ""
 	    echo -e " $b[$v$si$b] msfvenom installed $nc"
 	    sleep 4
 	    echo ""
@@ -109,6 +108,7 @@ function dep3(){
 	    echo -e " $b[$r$no$b] msfvenom no installed $nc"
 	    sleep 4
 	    echo ""
+	    exit
     fi
 }
 
