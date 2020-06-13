@@ -1,14 +1,16 @@
 # Win7Blue
 
-Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell Netcat [NO METASPLOIT-FRAMEWORK]
+Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT [NO METASPLOIT-FRAMEWORK]
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
 **Screenshot**
 
-![](/screenshot/1.png)
+![](/screenshot/01.png)
 
-![](/screenshot/2.png)
+![](/screenshot/02.png)
+
+![](/screenshot/03.png)
 
 **Run:**
 ```
