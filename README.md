@@ -31,6 +31,7 @@ root@kali:~# ./Win7BLue.sh
 - Kali
 - Parrot
 - Debian
+- Ubuntu
 
 # NOT BE BAD
 
