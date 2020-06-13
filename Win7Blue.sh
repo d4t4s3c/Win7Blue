@@ -106,7 +106,7 @@ function dep3(){
 	    echo ""
     else
             echo ""
-	    echo -e " $b[$r$no$b] rlwrap no installed $nc"
+	    echo -e " $b[$r$no$b] msfvenom no installed $nc"
 	    sleep 4
 	    echo ""
     fi
