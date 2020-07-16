@@ -28,9 +28,9 @@ Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO
 * Tested On:
 
   * Kali
-- Parrot
-- Debian
-- Ubuntu
+  * Parrot
+  * Debian
+  * Ubuntu
 
 # NOT BE BAD
 
