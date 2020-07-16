@@ -12,7 +12,7 @@ Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO
 
 ![](/screenshot/03.png)
 
-**Run:**
+* Run:
 
 ``` root@kali:~# cd ~ ```
 
@@ -25,7 +25,7 @@ Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO
 ``` root@kali:~# ./Win7BLue.sh ```
 
 
-**Tested On:**
+* Tested On:
 
 - Kali
 - Parrot
