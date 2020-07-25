@@ -6,11 +6,11 @@ Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO
 
 **Screenshot**
 
-![](/screenshot/01.png)
+![](/screenshot/1.png)
 
-![](/screenshot/02.png)
+![](/screenshot/2.png)
 
-![](/screenshot/03.png)
+![](/screenshot/3.png)
 
 * Run:
 
