@@ -33,6 +33,7 @@ Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010) Reverse Shell NETCAT **[NO
   * Ubuntu
   
 * Requirements:
+   * Python2.7
    * Msfvenom
    * Impacket
    * Rlwrap
