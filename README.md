@@ -1,7 +1,6 @@
 # Win7Blue
 
-Scan/Exploit Windows 7 x86/x64 (EternalBlue MS17-010)
-Payload: windows/shell_reverse_tcp (netcat) 
+Scan & Exploit Windows 7 x86 & x64 (EternalBlue MS17-010) Payload: windows/shell_reverse_tcp (netcat)
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
