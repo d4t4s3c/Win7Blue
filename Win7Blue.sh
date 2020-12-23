@@ -266,7 +266,8 @@ read -p " $(echo -e $az$shell $nc)" opc
            echo ""
            echo ""
 	   sleep 3
-	   exit
+	   tput cnorm
+	   exit 0
     else
 	   echo ""
 	   echo -e "$b$in$nc"
