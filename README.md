@@ -1,6 +1,6 @@
 # Win7Blue
 
-Scan & Exploit Windows 7 x86 & x64 (EternalBlue MS17-010) windows/shell_reverse_tcp (Netcat)
+`Scan & Exploit` Windows 7 x86 + x64 `EternalBlue MS17-010`
 
 # ONLY USE FOR EDUCATIONAL PURPOSES
 
