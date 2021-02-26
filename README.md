@@ -16,7 +16,7 @@
 
 * Run:
 
-```bash
+```cmd
 root@kali:~# cd ~
 root@kali:~# git clone https://github.com/d4t4s3c/Win7Blue.git
 root@kali:~# cd Win7Blue
