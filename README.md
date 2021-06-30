@@ -36,6 +36,7 @@ root@kali:~# ./Win7BLue.sh
   * Ubuntu
   
 * Requirements:
+
    * Python2.7
    * Msfvenom
    * Impacket
