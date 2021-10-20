@@ -24,7 +24,7 @@ root@kali:~# chmod +x Win7Blue.sh
 root@kali:~# ./Win7BLue.sh
 ```
 
-- <kbd>Tested On:</kbd>*
+- <kbd>Tested On:</kbd>
 
   * Kali
   * Parrot
