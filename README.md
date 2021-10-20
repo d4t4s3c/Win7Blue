@@ -1,10 +1,6 @@
 # Win7Blue
 
-`Scan & Exploit` **Windows 7 x86 + x64** `EternalBlue MS17-010`
-
-**Listener:** `Netcat` **(NO METASPLOIT)**
-
-# ONLY USE FOR EDUCATIONAL PURPOSES
+**Scan/Exploit - EternalBlue MS17-010 - Windows 7 x86/x64**
 
 `Screenshot`
 
