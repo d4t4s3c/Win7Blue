@@ -2,19 +2,17 @@
 
 **Scan/Exploit - EternalBlue MS17-010 - Windows 7 x86/x64**
 
-`Screenshot`
-
 ![](1.png)
 
 - <kbd>Scan</kbd>
 
-![](/screenshot/2.png)
+![](2.png)
 
 - <kbd>Exploit</kbd>
 
-![](/screenshot/3.png)
+![](3.png)
 
-![](/screenshot/4.png)
+![](4.png)
 
 - <kbd>Use</kbd>
 
