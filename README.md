@@ -4,7 +4,7 @@
 
 `Screenshot`
 
-![](/screenshot/1.png)
+![](1.png)
 
 - <kbd>Scan</kbd>
 
