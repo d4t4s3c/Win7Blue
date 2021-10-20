@@ -4,17 +4,19 @@
 
 `Screenshot`
 
-![](/screenshot/001.png)
+![](/screenshot/1.png)
 
-`Scan`
+- <kbd>Scan</kbd>
 
-![](/screenshot/002.png)
+![](/screenshot/2.png)
 
-`Exploit`
+- <kbd>Exploit</kbd>
 
-![](/screenshot/003.png)
+![](/screenshot/3.png)
 
-* Run:
+![](/screenshot/4.png)
+
+- <kbd>Use</kbd>
 
 ```cmd
 root@kali:~# cd ~
@@ -24,22 +26,19 @@ root@kali:~# chmod +x Win7Blue.sh
 root@kali:~# ./Win7BLue.sh
 ```
 
-* Tested On:
+- <kbd>Tested On:</kbd>*
 
   * Kali
   * Parrot
   * Debian
   * Ubuntu
   
-* Requirements:
+- <kbd>Requirements:</kbd>
 
+   * Python3
    * Python2.7
    * Msfvenom
    * Impacket
-   * Rlwrap
    * Netcat
-   * Xterm
-   
-# NOT BE BAD
 
-
+---
