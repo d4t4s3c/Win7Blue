@@ -2,7 +2,7 @@
 
 **Scan & Exploit - EternalBlue MS17-010 - Windows 7 x86 & x64**
 
-![](1.png)
+![](/screenshots/01.png)
 
 - <kbd>Scan</kbd>
 
