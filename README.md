@@ -2,6 +2,8 @@
 
 **Scan & Exploit - EternalBlue MS17-010 - Windows 7 x86 & x64**
 
+>Upgrading code to support Python3
+
 ![](/screenshots/001.png)
 
 - <kbd>Scan</kbd>
