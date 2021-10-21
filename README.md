@@ -6,13 +6,13 @@
 
 - <kbd>Scan</kbd>
 
-![](2.png)
+![](/screenshots/002.png)
 
 - <kbd>Exploit</kbd>
 
-![](3.png)
+![](/screenshots/003.png)
 
-![](4.png)
+![](/screenshots/004.png)
 
 - <kbd>Use</kbd>
 
