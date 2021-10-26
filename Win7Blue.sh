@@ -187,12 +187,12 @@ read -p " $(echo -e $Blue$shell $End)" opc
 }
 
 function start(){
-clear
-check
-msf
-banner
-main
-menu
+	clear
+	check
+	msf
+	banner
+	main
+	menu
 }
 
 start
