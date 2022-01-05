@@ -2,7 +2,7 @@
 
 **Scan & Exploit - EternalBlue MS17-010 - Windows 7 x86 & x64**
 
->`Updated` the code in `2021` for `Python3`
+>`Updated` the code in `2022` for `Python3`
 
 ![](/screenshots/001.png)
 
