@@ -30,7 +30,7 @@ root@kali:~# ./Win7BLue.sh
 
 ```cmd
 root@kali:~# crackmapexec smb <target>
-SMB         192.168.1.XXX    445    TESTING       [*] Windows 7 Professional 7600 x64 (name:TESTING) (domain:TESTING) (signing:False) (SMBv1:True)
+SMB   192.168.1.XXX   445   TESTING   [*] Windows 7 Professional 7600 x64 (name:TESTING) (domain:TESTING) (signing:False) (SMBv1:True)
 ```
 
 - <kbd>Tested On:</kbd>
