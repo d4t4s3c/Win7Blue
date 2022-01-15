@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#colors
 declare -r White="\e[97m"
 declare -r GrayLight="\e[37m"
 declare -r GrayDark="\e[90m"
@@ -18,7 +17,6 @@ declare -r Cyan="\e[36m"
 declare -r CyanLight="\e[96m"
 declare -r End="\e[0m"
 
-#var
 declare -r shell="$"
 declare -r var1="1"
 declare -r var2="2"
@@ -49,7 +47,6 @@ declare -r var26="NO root"
 declare -r var27="checking msfvenom installed"
 declare -r var28="msfvenom"
 declare -r var29="msfvenom not installed"
-
 
 function check(){
 		echo ""
