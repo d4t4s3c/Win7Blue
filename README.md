@@ -2,7 +2,7 @@
 
 >Win7Blue is a tool created to scan/exploit the "EternalBlue MS17-010" vulnerability on both architectures (x86/x64) and be able to obtain a normal shell via Netcat (without using Metasploit) and compatible with OSCP examing.
 
-## updated code in 2022 for Python3
+### (updated code in 2022 for Python3)
 
 ![](/screenshots/001.png)
 
