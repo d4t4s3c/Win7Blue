@@ -40,8 +40,8 @@ SMB   192.168.1.XXX   445   TESTING   [*] Windows 7 Professional 7600 x64 (name:
   
 - <kbd>Requirements:</kbd>
 
+   * Python
    * Python3
-   * Python2.7
    * Msfvenom
    * Impacket
    * Netcat/Ncat
