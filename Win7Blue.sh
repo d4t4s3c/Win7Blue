@@ -123,7 +123,7 @@ read -p " $(echo -e $Blue$shell $End)" opc
 		echo ""
 		read rhost
 		echo ""
-    		python eternalblue_scanner.py $rhost
+    		python2 eternalblue_scanner.py $rhost
     		echo ""
 		exit 0
 	elif [ $opc -eq 2 ]; then
