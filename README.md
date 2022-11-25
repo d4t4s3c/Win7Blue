@@ -2,17 +2,13 @@
 
 Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
-![](/screenshots/001.png)
-
 - <kbd>Scan</kbd>
 
-![](/screenshots/002.png)
+![](/screenshots/1.png)
 
 - <kbd>Exploit</kbd>
 
-![](/screenshots/003.png)
-
-![](/screenshots/004.png)
+![](/screenshots/2.png)
 
 - <kbd>Use</kbd>
 
@@ -24,7 +20,7 @@ root@kali:~# chmod +x Win7Blue.sh
 root@kali:~# ./Win7BLue.sh
 ```
 
-- <kbd>Enum arch (x86 / x64)</kbd>
+- <kbd>Enum 32/64 bits</kbd>
 
 ```cmd
 root@kali:~# crackmapexec smb <target>
