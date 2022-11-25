@@ -1,6 +1,6 @@
 # Win7Blue
 
-Scan/Exploit - EternalBlue MS17-010 - Windows 7 x86/x64 
+Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 ![](/screenshots/001.png)
 
