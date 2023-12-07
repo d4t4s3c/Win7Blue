@@ -13,10 +13,7 @@ Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 - <kbd>Use</kbd>
 
 ```cmd
-root@kali:~# cd ~
-root@kali:~# git clone https://github.com/d4t4s3c/Win7Blue.git
-root@kali:~# cd Win7Blue
-root@kali:~# chmod +x Win7Blue.sh
+root@kali:~# git clone https://github.com/d4t4s3c/Win7Blue.git && cd Win7Blue && chmod +x Win7Blue.sh
 root@kali:~# ./Win7BLue.sh
 ```
 
