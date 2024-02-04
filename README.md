@@ -1,21 +1,20 @@
 # Win7Blue
 
-Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
+Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits.
 
 ![](/screenshots/screenshot.png)
 
 **Tested On:**
-
   * Kali
-  
+
 **Requirements:**
 
-   * Nmap
-   * Python
-   * Python3
-   * Msfvenom
-   * Impacket
-   * Netcat/Ncat
+  * Nmap
+  * Python
+  * Python3
+  * Msfvenom
+  * Impacket
+  * Netcat/Ncat
 
 ---
 
