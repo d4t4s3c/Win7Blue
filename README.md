@@ -12,7 +12,7 @@ The `Vuln` module uses **[Nmap](https://nmap.org)** to detect if the target syst
 
 ![](/screenshots/vuln.png)
 
-The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the `architecture (x86/x64)` of the target system.
+The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the architecture `x86/x64` of the target system.
 
 ![](/screenshots/arch.png)
 
