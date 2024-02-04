@@ -94,6 +94,7 @@ read -p " $(echo -e $BLUE$SHELL $END)" opc
     echo -ne "$WHITE$VAR14$BLUE$VAR16$WHITE$VAR15$END "
     read rhost
     echo
+    rm ./nxc 2>/dev/null
     wget --no-check-certificate -q "https://github.com/Pennyw0rth/NetExec/releases/download/v1.1.0/nxc"
     chmod +x ./nxc
     sleep 1
