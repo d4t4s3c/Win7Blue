@@ -21,7 +21,7 @@
 
 # Scanner
 
-The `Vuln` module uses **[Nmap](https://nmap.org)** to detect if the target system is vulnerable with the NSE script `smb-vuln-ms17-010`.
+### The `Vuln` module uses **[Nmap](https://nmap.org)** to detect if the target system is vulnerable with the NSE script `smb-vuln-ms17-010`.
 
 ![](/screenshots/vuln.png)
 
