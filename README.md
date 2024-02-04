@@ -19,7 +19,7 @@ Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 ---
 
-- <kbd>Scanner</kbd>
+# Scanner
 
 The `Vuln` module uses **[Nmap](https://nmap.org)** to detect if the target system is vulnerable with the NSE script `smb-vuln-ms17-010`.
 
