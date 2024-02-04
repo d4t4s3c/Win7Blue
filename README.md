@@ -1,6 +1,6 @@
 # Win7Blue
 
-### Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
+#### Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 ![](/screenshots/screenshot.png)
 
@@ -25,7 +25,7 @@
 
 ![](/screenshots/vuln.png)
 
-The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the architecture `x86/x64` of the target system.
+#### The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the architecture `x86/x64` of the target system.
 
 ![](/screenshots/arch.png)
 
