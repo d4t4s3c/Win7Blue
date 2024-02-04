@@ -4,6 +4,19 @@ Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 ![](/screenshots/screenshot.png)
 
+- <kbd>Tested On:</kbd>
+
+  * Kali
+  
+- <kbd>Requirements:</kbd>
+
+   * Nmap
+   * Python
+   * Python3
+   * Msfvenom
+   * Impacket
+   * Netcat/Ncat
+
 ---
 
 - <kbd>Scanner</kbd>
@@ -21,20 +34,5 @@ The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the a
 - <kbd>Exploit</kbd>
 
 ![](/screenshots/exploit.png)
-
----
-
-- <kbd>Tested On:</kbd>
-
-  * Kali
-  
-- <kbd>Requirements:</kbd>
-
-   * Nmap
-   * Python
-   * Python3
-   * Msfvenom
-   * Impacket
-   * Netcat/Ncat
 
 ---
