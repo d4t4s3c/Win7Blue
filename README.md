@@ -31,6 +31,7 @@ SMB   192.168.1.XXX   445   TESTING   [*] Windows 7 Professional 7600 x64 (name:
   
 - <kbd>Requirements:</kbd>
 
+   * Nmap
    * Python
    * Python3
    * Msfvenom
