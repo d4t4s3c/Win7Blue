@@ -4,11 +4,11 @@ Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 ![](/screenshots/screenshot.png)
 
-- <kbd>Tested On:</kbd>
+Tested On:
 
   * Kali
   
-- <kbd>Requirements:</kbd>
+Requirements:
 
    * Nmap
    * Python
