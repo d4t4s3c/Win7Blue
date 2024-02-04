@@ -8,17 +8,19 @@ Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits
 
 - <kbd>Scan</kbd>
 
+The vuln module uses **[Nmap](https://nmap.org)** and launches the NSE script `smb-vuln-ms17-010`.
+
 ![](/screenshots/1.png)
 
 - <kbd>Exploit</kbd>
 
 ![](/screenshots/2.png)
 
-- <kbd>Use</kbd>
+- <kbd>Usage</kbd>
 
 ```cmd
-root@kali:~# git clone https://github.com/d4t4s3c/Win7Blue.git && cd Win7Blue && chmod +x Win7Blue.sh
-root@kali:~# ./Win7BLue.sh
+git clone https://github.com/d4t4s3c/Win7Blue.git && cd Win7Blue && chmod +x ./Win7Blue
+./Win7BLue
 ```
 
 - <kbd>Enum 32/64 bits</kbd>
