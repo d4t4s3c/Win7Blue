@@ -31,7 +31,7 @@ The `Arch` module uses **[NetExec](https://www.netexec.wiki)** to identify the a
 
 ---
 
-- <kbd>Exploit</kbd>
+# Exploit
 
 ![](/screenshots/exploit.png)
 
