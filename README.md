@@ -3,7 +3,7 @@
 ![GitHub stars](https://img.shields.io/github/stars/d4t4s3c/Win7Blue?logoColor=yellow) ![GitHub forks](https://img.shields.io/github/forks/d4t4s3c/Win7Blue?logoColor=purple) ![GitHub watchers](https://img.shields.io/github/watchers/d4t4s3c/Win7Blue?logoColor=green)</br>
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/d4t4s3c/Win7Blue) ![GitHub contributors](https://img.shields.io/github/contributors/d4t4s3c/Win7Blue)  
 
-Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits.
+**Scan/Exploit - EternalBlue MS17-010 (CVE-2017-0143) - Windows 7 32/64 Bits.**
 
 > [!WARNING]
 > You may need to run the exploit several times to be successful.
