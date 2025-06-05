@@ -5,6 +5,9 @@
 
 Scan/Exploit - EternalBlue MS17-010 - Windows 7 32/64 Bits.
 
+> [!WARNING]
+> You may need to run the exploit several times to be successful.
+
 ![](/screenshots/screenshot.png)
 
 **Tested On:**
